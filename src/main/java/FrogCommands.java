@@ -1,18 +1,43 @@
-public class FrogCommands implements FrogCommand {
+public class FrogCommands {
     public static FrogCommand jumpRightCommand(Frog frog, int steps) {
-        // возвращаете объект команды, у которого
-        // если вызвать .do(), то лягушка её выполнит,
-        // если вызвать .undo(), то лягушка её отменит
-        return new FrogCommand();
+        return new FrogCommand() {
+            @Override
+            public boolean myDo() {
+                return frog.jump(steps);
+            }
+
+            @Override
+            public boolean undo() {
+                return frog.jump(-steps);
+            }
+        };
     }
 
-    @Override
-    public boolean myDo() {
-        return false;
+    public static FrogCommand jumpLeftCommand(Frog frog, int steps) {
+        return new FrogCommand() {
+            @Override
+            public boolean myDo() {
+                return frog.jump(-steps);
+            }
+
+            @Override
+            public boolean undo() {
+                return frog.jump(steps);
+            }
+        };
     }
 
-    @Override
-    public boolean undo() {
-        return false;
+    public static FrogCommand emptyCommand() {
+        return new FrogCommand() {
+            @Override
+            public boolean myDo() {
+                return true;
+            }
+
+            @Override
+            public boolean undo() {
+                return true;
+            }
+        };
     }
 }
