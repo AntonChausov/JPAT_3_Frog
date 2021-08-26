@@ -35,12 +35,12 @@ public class Main {
             } else { //пользователь ввёл новое движение для лягушки
                 if (curCommand < commands.size() - 1 && curCommand > 0) {
                     //удаляем все команды которые были отменены
-                    for (int i = curCommand; i <= commands.size(); i++){
+                    for (int i = curCommand; i <= commands.size(); i++) {
                         commands.remove(i);
                     }
                 }
                 FrogCommand cmd = FrogCommands.emptyCommand();
-                if(input.startsWith("+")){
+                if (input.startsWith("+")) {
                     inputSteps = Integer.parseInt(input.substring(1));
                     cmd = FrogCommands.jumpRightCommand(frog, inputSteps);
                 } else if (input.startsWith("-")) {

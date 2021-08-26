@@ -10,7 +10,7 @@ public class Frog {
 
     public boolean jump(int steps) {
         int newPosition = steps + position;
-        if (newPosition < MIN_POSITION || newPosition >MAX_POSITION) {
+        if (newPosition < MIN_POSITION || newPosition > MAX_POSITION) {
             System.out.println("Не могу туда прыгнуть :(");
             return false;
         }
@@ -21,7 +21,7 @@ public class Frog {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = MIN_POSITION; i <= MAX_POSITION; i++){
+        for (int i = MIN_POSITION; i <= MAX_POSITION; i++) {
             stringBuilder.append(i == position ? 'O' : '-');
         }
         return stringBuilder.toString();
